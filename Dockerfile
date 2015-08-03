@@ -4,29 +4,29 @@ MAINTAINER ryanstout@gmail.com
 USER root
 
 
-## -- Build Golang 1.5 beta --
-# # Install Go 1.4 for bootstrap
-RUN mkdir /goroot1.4 && curl https://storage.googleapis.com/golang/go1.4.linux-amd64.tar.gz | tar xvzf - -C /goroot1.4 --strip-components=1
-# RUN mkdir /gopath
+# ## -- Build Golang 1.5 beta --
+# # # Install Go 1.4 for bootstrap
+# RUN mkdir /goroot1.4 && curl https://storage.googleapis.com/golang/go1.4.linux-amd64.tar.gz | tar xvzf - -C /goroot1.4 --strip-components=1
+# # RUN mkdir /gopath
 
-# Build 1.4
-ENV GOROOT /goroot1.4
-ENV GOPATH /gopath
-ENV PATH $GOROOT/bin/:$GOPATH/bin/:$PATH
+# # Build 1.4
+# ENV GOROOT /goroot1.4
+# ENV GOPATH /gopath
+# ENV PATH $GOROOT/bin/:$GOPATH/bin/:$PATH
 
-RUN cd /goroot1.4/src ; ./all.bash
-ENV GOROOT_BOOTSTRAP /goroot1.4
+# RUN cd /goroot1.4/src ; ./all.bash
+# ENV GOROOT_BOOTSTRAP /goroot1.4
 
-# Install from git
-RUN git clone https://github.com/golang/go.git /goroot
-# RUN cd /goroot ; git checkout cc8f544
-## -- / Build Golang 1.5 beta --
+# # Install from git
+# RUN git clone https://github.com/golang/go.git /goroot
+# # RUN cd /goroot ; git checkout cc8f544
+# ## -- / Build Golang 1.5 beta --
 
 
 
-## -- Build Golang 1.4 --
-# RUN mkdir /goroot && curl https://storage.googleapis.com/golang/go1.4.linux-amd64.tar.gz | tar xvzf - -C /goroot --strip-components=1
-## -- /Build Golang 1.4 --
+# -- Build Golang 1.4 --
+RUN mkdir /goroot && curl https://storage.googleapis.com/golang/go1.4.linux-amd64.tar.gz | tar xvzf - -C /goroot --strip-components=1
+# -- /Build Golang 1.4 --
 
 
 ENV GOROOT /goroot
