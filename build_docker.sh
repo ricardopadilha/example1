@@ -1,0 +1,1 @@
+docker build -t ryanstout/example1 .
