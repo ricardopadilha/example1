@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # Do whatever needs to be done to build the app here.
 # Keep in mind that the environment is already set to:
@@ -12,9 +12,10 @@ set -o xtrace
 
 pushd src
 
+go get github.com/syndtr/goleveldb/leveldb
 go build -o drive drive.go
 
 # copy result out of docker
-cp drive ~/dist/
+cp drive /dist/
 
 popd
